@@ -1,3 +1,6 @@
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
+
 namespace AppImageUploader.MVC
 {
     public class Program
@@ -8,6 +11,7 @@ namespace AppImageUploader.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 
             var app = builder.Build();
 
@@ -23,7 +27,7 @@ namespace AppImageUploader.MVC
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseNotyf();
             app.UseAuthorization();
 
             app.MapControllerRoute(

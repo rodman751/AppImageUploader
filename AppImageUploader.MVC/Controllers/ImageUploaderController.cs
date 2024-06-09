@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Entidades;
 using AppImageUploader.ConsumeAPI;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using AspNetCoreHero.ToastNotification.Abstractions;
 namespace AppImageUploader.MVC.Controllers
 {
   
@@ -10,10 +11,11 @@ namespace AppImageUploader.MVC.Controllers
     {
 
         private string urlApi;
-        public ImageUploaderController(IConfiguration configuration )
+        public INotyfService _notifyService { get; }
+        public ImageUploaderController(IConfiguration configuration, INotyfService notifyService)
         {
             urlApi = configuration.GetValue("ApiUrlBase", "").ToString() + "/Images";
-
+            _notifyService = notifyService;
         }
 
         // GET: ImageUploaderController
@@ -61,7 +63,7 @@ namespace AppImageUploader.MVC.Controllers
                 Console.WriteLine($"Error: {ex.Message}");
                 ModelState.AddModelError("", "Ocurrió un error al procesar la imagen.");
             }
-
+            _notifyService.Success("Imagen subida con éxito");
             return View();
         }
 
@@ -71,7 +73,7 @@ namespace AppImageUploader.MVC.Controllers
         public ActionResult Traer()
         {
             var images = ConsumirAPI<Image>.Read(urlApi);
-           
+           _notifyService.Success("Imagenes cargadas con éxito");
             return View(images);
         }
 
@@ -138,13 +140,14 @@ namespace AppImageUploader.MVC.Controllers
 
                     // Finalizar la respuesta
                     await Response.Body.FlushAsync();
-
+                    _notifyService.Success("Imagen descargada con éxito");
                     // Retornar un resultado vacío ya que la respuesta ya se envió
                     return new EmptyResult();
                 }
                 else
                 {
                     // Si no se encontró la imagen, redirigir a la página de detalles con un mensaje de error
+                    _notifyService.Information("No se encontro la imagen");
                     return RedirectToAction("Traer", new { id = id, error = true });
                 }
             }
@@ -153,8 +156,9 @@ namespace AppImageUploader.MVC.Controllers
                 // Manejar la excepción de alguna manera
                 Console.WriteLine($"Error: {ex.Message}");
                 ModelState.AddModelError("", "Ocurrió un error al descargar la imagen.");
+                _notifyService.Error("Ocurrió un error al descargar la imagen");
             }
-
+            
             // Redirigir a la página de detalles
             return RedirectToAction("Traer", new { id = id });
         }
