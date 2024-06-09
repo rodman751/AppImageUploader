@@ -1,0 +1,14 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Share Image";
+}
+
+<h2>Share Image</h2>
+
+<p>Use the link below to share the image:</p>
+<a href="@Model" target="_blank">@Model</a>
+
+<div>
+    <a href="@Url.Action("Index", "ImageUploader")">Back to List</a>
+</div>

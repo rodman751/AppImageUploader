@@ -1,0 +1,166 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #F9FAFBCC
+}
+.navbar {
+    border-bottom-color: #E5E7EB;
+}
+
+.containerr {
+    background-color: #FFFFFF;
+    border: 2px solid #E5E7EB;
+    border-radius: 5px;
+    width: 648px;
+    
+}
+@media only screen and (width: 412px) and (height: 914px) {
+    .containerr {
+        background-color: #FFFFFF;
+        border: 2px solid #E5E7EB;
+        border-radius: 5px;
+        width: 348px;
+    }
+}
+#imageUploadArea {
+    border: dashed;
+    border-width-color: 1px ;
+    border-color: #E5E7EB;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 20px;
+}
+@media only screen and (width: 412px) and (height: 914px) {
+    #imageUploadArea {
+        border: dashed;
+        border-width-color: 1px;
+        border-color: #E5E7EB;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin: 20px;
+        border-radius: 20px;
+        width: auto;
+        height: auto;
+    }
+}
+label {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+        display: flex;
+        cursor: pointer;
+        align-content: space-around;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+}
+.svgg {
+    position: absolute;
+    margin-bottom: 70px;
+}
+p {
+    margin-top: 60px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+.moon {
+    position: absolute;
+    right: 20px;
+    background-color: #F9FAFBCC;
+    border: solid;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #E5E7EB;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.moon-icon {
+    width: 35px;
+    height: 35px;
+}
+@media only screen and (width: 542px) and (height: 378px) {
+    .moon::after {
+        position: static;
+
+    }
+}
+
+.dark-mode {
+    background-color: #121826;
+    color: #f9fafb;
+    
+}
+
+.dark-mode .moon-icon {
+    width: 35px;
+    height: 35px;
+}
+.dark-mode .containerr {
+    background-color: #212936;
+    border-color: none;
+    border: none;
+    border-radius: 10px;
+    padding: 1px;
+
+}
+.dark-mode .link {
+        
+    color: white
+}
+.dark-mode svg {
+    fill:white; 
+}
+a{
+    padding:10px
+}
+.container {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+form {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar .container {
+    padding-right: 70px;
+}
+
