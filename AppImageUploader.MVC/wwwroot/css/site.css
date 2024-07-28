@@ -123,10 +123,11 @@ body {
     
 }
 
-.dark-mode .moon-icon {
-    width: 35px;
-    height: 35px;
-}
+    .dark-mode .moon-icon {
+        width: 35px;
+        height: 35px;
+        filter: invert(11%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(50%) contrast(90%);
+    }
 .dark-mode .containerr {
     background-color: #212936;
     border-color: none;
@@ -135,27 +136,30 @@ body {
     padding: 1px;
 
 }
-.dark-mode .link {
-        
-    color: white
+    .dark-mode h5{
+        color: black;
+    }
+    .dark-mode .link {
+        color: white
+    }
+    .dark-mode svg {
+        filter: invert(100%) brightness(200%);
+    }
+.dark-mode tr{
+    
+    color: white;
+
 }
-.dark-mode svg {
-    fill:white; 
+.dark-mode .svgimg{
+    fill: white;
+
 }
 a{
     padding:10px
 }
-.container {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: 0;
-}
 
 form {
     display: flex;
-    height: 100vh;
     flex-direction: column;
     align-items: center;
 }
@@ -164,3 +168,9 @@ form {
     padding-right: 70px;
 }
 
+.container-init {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0 auto;
+}
