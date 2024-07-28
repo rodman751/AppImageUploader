@@ -32,19 +32,19 @@ body {
     width: 648px;
     
 }
-@media only screen and (width: 412px) and (height: 914px) {
+@media only screen and (max-width: 570px) {
     .containerr {
         background-color: #FFFFFF;
         border: 2px solid #E5E7EB;
         border-radius: 5px;
-        width: 348px;
+        width: 100%;
     }
 }
 #imageUploadArea {
     border: dashed;
     border-width-color: 1px ;
     border-color: #E5E7EB;
-    width: 600px;
+    /*width: 600px;*/
     height: 400px;
     margin: 0 auto;
     display: flex;
